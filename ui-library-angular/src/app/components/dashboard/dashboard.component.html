@@ -1,0 +1,52 @@
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Welcome to Library</a>
+</nav>
+
+<div class="accordion" id="accordionExample">
+    <div class="card" *ngIf="libs.length === 0">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">No Library Found</h2>
+      </div>
+
+    </div>
+    <div class="card" *ngFor="let lib of libs">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne' + lib.id"  aria-expanded="true" aria-controls="collapseOne">
+            {{lib.name}}
+          </button>
+        </h2>
+      </div>
+      <div [id]="'collapseOne' + lib.id" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <button class="btn btn-primary" (click)="loadBooks(lib)">
+          Load Books
+        </button>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Book</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let book of lib.books; let index = index;">
+                    <td>{{index + 1}}</td>
+                    <td>{{book.name}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.description}}</td>
+                  </tr>
+                  <tr *ngIf="!lib.books">
+                    <td scope="row" colspan="4">Please click on load button to get all book for {{lib.name}}</td>
+                  </tr>
+                  <tr *ngIf="lib.books && lib.books.length === 0">
+                    <td scope="row" colspan="4">No Books Found for {{lib.name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+</div>

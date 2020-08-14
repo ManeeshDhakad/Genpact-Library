@@ -1,0 +1,38 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.margin-top-10px {
+    margin-top: 10px;
+}
+
+.margin-top-5px {
+    margin-top: 5px;
+}
+
+.margin-left-10px {
+    margin-left: 10px;
+}
+
+.ck.ck-editor__editable_inline[dir=ltr] {
+    text-align: left;
+    background: white;
+    border: 1px solid gray;
+}
+
+.drop-down {
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
